@@ -7,3 +7,10 @@ Create the scene with the character and give him the movements of both walking a
 <p align="center">
   <img src="./videos/part1.gif" alt="Demo" width="500"/>
 </p>
+
+ ### Part 2
+Creating the enemy and its movements, followed by being able to put attacks on the main character, I show below:
+
+<p align="center">
+  <img src="./videos/part2.gif" alt="Demo" width="500"/>
+</p>
