@@ -14,5 +14,7 @@ func _physics_process(delta: float) -> void:
 		var move_direction = (player.position - position).normalized()
 		if move_direction:
 			velocity = move_direction * move_speed
+			if move_direction.x != 0:
+				sprite_animation.flip_h = move_direction.x < 0
 			
 		move_and_slide()
