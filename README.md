@@ -5,5 +5,5 @@ First RPG game Godot Engine
 Create the scene with the character and give him the movements of both walking and attacking, I show below:
 
 <p align="center">
-  <img src="./videos/part1.gif" alt="Demo" width="600"/>
+  <img src="./videos/part1.gif" alt="Demo" width="500"/>
 </p>
