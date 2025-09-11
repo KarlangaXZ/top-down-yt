@@ -17,8 +17,15 @@ the enemy will follow the player, I show below:
 </p>
 
  ### Part 3
-instantiate multiple enemies and adding a timer, I show below:
+Instantiate multiple enemies and adding a timer, I show below:
 	
 <p align="center">
   <img src="./videos/part3.gif" alt="Demo" width="500"/>
+</p>
+
+ ### Part 4
+Enemies can attack us, I show below:
+	
+<p align="center">
+  <img src="./videos/part4.gif" alt="Demo" width="500"/>
 </p>

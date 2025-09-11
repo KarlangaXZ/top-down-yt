@@ -16,5 +16,26 @@ func _physics_process(delta: float) -> void:
 			velocity = move_direction * move_speed
 			if move_direction.x != 0:
 				sprite_animation.flip_h = move_direction.x < 0
+				$AreaAttack.scale.x = -1 if move_direction.x < 0 else 1
 			
 		move_and_slide()
+
+func attack():
+	sprite_animation.play("attack")
+	is_attack = true
+	
+#Cuando el player entre a la zona de ataque del enemigo.
+func _on_area_attack_body_entered(body: Node2D) -> void:
+	if body is Player:
+		attack()
+
+#Cuando el player salga del rango de ataque del enemigo
+func _on_area_attack_body_exited(body: Node2D) -> void:
+	if body is Player:
+		is_attack = false
+
+#Cuando la animacion del ataque termine
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite_animation.animation == "attack":
+		if is_attack:
+			attack()
