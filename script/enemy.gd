@@ -9,6 +9,11 @@ var attack_player_range := false
 @onready var sprite_animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_components: HealthComponent = $Components/HealthComponents
 
+func _ready() -> void:
+	if player:
+		player.attack_finished.connect(verify_receive_damage)
+	
+	health_components.death.connect(on_death)
 
 func _physics_process(delta: float) -> void:
 	if !is_attack and player:
@@ -26,7 +31,13 @@ func _physics_process(delta: float) -> void:
 func attack():
 	sprite_animation.play("attack")
 	is_attack = true
-	
+
+func verify_receive_damage():
+	if attack_player_range == true :
+		health_components.receive_damage(player.attact_damage)
+
+func on_death():
+	queue_free()
 
 #Cuando el player entre a la zona de ataque del enemigo.
 func _on_area_attack_body_entered(body: Node2D) -> void:

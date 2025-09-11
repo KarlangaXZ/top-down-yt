@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://2sy61h2fi5np"]
+[gd_scene load_steps=21 format=3 uid="uid://2sy61h2fi5np"]
 
 [ext_resource type="Script" uid="uid://dymqm0wrn7ee" path="res://script/enemy.gd" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://b5xvw1vnqelks" path="res://art/Factions/Goblins/Troops/Torch/Yellow/Torch_Yellow.png" id="2_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://cgmvj0btjgtna" path="res://components/health_components.tscn" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://b4cgy41vr5xre" path="res://background color/Red.jpg" id="4_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
 atlas = ExtResource("2_4ra3w")
@@ -107,6 +108,9 @@ radius = 11.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(29, 68)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5uy6h"]
+texture = ExtResource("4_5uy6h")
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_md0e3")
 
@@ -136,6 +140,8 @@ offset_left = -36.0
 offset_top = -72.0
 offset_right = 37.0
 offset_bottom = -45.0
+theme_override_constants/outline_size = 5
+theme_override_styles/fill = SubResource("StyleBoxTexture_5uy6h")
 value = 100.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

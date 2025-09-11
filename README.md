@@ -29,3 +29,10 @@ Enemies can attack us, I show below:
 <p align="center">
   <img src="./videos/part4.gif" alt="Demo" width="500"/>
 </p>
+
+### Part 5
+Create a Health bar, I show below:
+	
+<p align="center">
+  <img src="./videos/part5.gif" alt="Demo" width="500"/>
+</p>

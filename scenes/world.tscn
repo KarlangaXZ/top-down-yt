@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpgx3kid8aimr"]
+[gd_scene load_steps=4 format=3 uid="uid://dpgx3kid8aimr"]
 
 [ext_resource type="PackedScene" uid="uid://bavqtp0vn7iho" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://sp7oqig4txrj" path="res://script/world.gd" id="1_rwgxs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k0juu"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_rwgxs")
@@ -10,3 +12,22 @@ script = ExtResource("1_rwgxs")
 position = Vector2(419, 258)
 
 [node name="TimerSpawnEnemy" type="Timer" parent="."]
+
+[node name="GameOver" type="GraphFrame" parent="."]
+visible = false
+modulate = Color(0.16, 0.496, 1, 1)
+material = SubResource("CanvasItemMaterial_k0juu")
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 530.0
+offset_top = 105.0
+offset_right = 719.0
+offset_bottom = 168.0
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "hola
+"
+title = "Game Over"
+tint_color = Color(0.684225, 0.165654, 0.305866, 0.74902)

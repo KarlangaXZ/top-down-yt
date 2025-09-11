@@ -1,5 +1,7 @@
 class_name HealthComponent extends Node2D
 
+signal death()
+
 @export var progress_bar: ProgressBar
 @export var current_health := 100
 @export var max_health := 100
@@ -23,4 +25,4 @@ func apply_health(amount: int):
 	update_health_bar()
 	
 func u_death():
-	print("you are death")
+	death.emit()
