@@ -36,3 +36,9 @@ Create a Health bar, I show below:
 <p align="center">
   <img src="./videos/part5.gif" alt="Demo" width="500"/>
 </p>
+
+### Part 6
+	
+<p align="center">
+  <img src="./videos/part6.gif" alt="Demo" width="500"/>
+</p>
