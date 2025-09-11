@@ -1,10 +1,13 @@
 class_name Player extends CharacterBody2D
 
 @onready var sprite_animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_components: HealthComponent = $Components/HealthComponents
+
 
 var move_speed := 100
 var attact_damage := 50
 var is_attack := false
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -21,6 +24,7 @@ func _physics_process(delta: float) -> void:
 			sprite_animation.play("run")
 			if move_direction.x != 0:
 				sprite_animation.flip_h = move_direction.x < 0
+				$AreaAttack.scale.x = -1 if move_direction.x < 0 else 1
 		
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, move_speed)
@@ -32,15 +36,17 @@ func attack():
 	sprite_animation.play("attack")
 	is_attack = true
 
-
+#aqui termina la animacion de ataque.
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite_animation.animation == "attack":
 		is_attack = false
 
 #Cuando el enemigo este en la zona de ataque.
 func _on_area_attack_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body is Enemy:
+		body.attack_player_range = false
 
 #Cuando el enemigo este FUERA de la zona de ataque.
 func _on_area_attack_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body is Enemy:
+		body.attack_player_range = false

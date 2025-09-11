@@ -3,8 +3,11 @@ class_name Enemy extends CharacterBody2D
 var move_speed := 50
 var attack_damage := 10
 var is_attack := false
+var attack_player_range := false
+
 @onready var player: Player = $"../Player"
 @onready var sprite_animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_components: HealthComponent = $Components/HealthComponents
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +27,7 @@ func attack():
 	sprite_animation.play("attack")
 	is_attack = true
 	
+
 #Cuando el player entre a la zona de ataque del enemigo.
 func _on_area_attack_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -37,5 +41,6 @@ func _on_area_attack_body_exited(body: Node2D) -> void:
 #Cuando la animacion del ataque termine
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite_animation.animation == "attack":
+		player.health_components.receive_damage(attack_damage)
 		if is_attack:
 			attack()

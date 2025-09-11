@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bavqtp0vn7iho"]
+[gd_scene load_steps=25 format=3 uid="uid://bavqtp0vn7iho"]
 
 [ext_resource type="Script" uid="uid://l7yuasvs2j3g" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://gcplgwofmcd7" path="res://art/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://cgmvj0btjgtna" path="res://components/health_components.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -173,6 +174,17 @@ shape = SubResource("CircleShape2D_i4ail")
 position = Vector2(54.5, -13.5)
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(0.523043, 0.449985, 0.917099, 0.42)
+
+[node name="Components" type="Node" parent="."]
+
+[node name="HealthComponents" parent="Components" node_paths=PackedStringArray("progress_bar") instance=ExtResource("3_qhqgy")]
+progress_bar = NodePath("../../ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -68.0
+offset_top = -87.0
+offset_right = 49.0
+offset_bottom = -60.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="AreaAttack" to="." method="_on_area_attack_body_entered"]
