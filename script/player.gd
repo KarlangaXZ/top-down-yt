@@ -36,3 +36,11 @@ func attack():
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite_animation.animation == "attack":
 		is_attack = false
+
+#Cuando el enemigo este en la zona de ataque.
+func _on_area_attack_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+#Cuando el enemigo este FUERA de la zona de ataque.
+func _on_area_attack_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
